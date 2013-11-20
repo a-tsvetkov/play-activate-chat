@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Chat api
+GET     /api/chat                   controllers.ChatAPI.list
+POST    /api/chat                   controllers.ChatAPI.create
+
+GET     /api/chat/:id               controllers.ChatAPI.get(id:String)
+
+GET     /api/message                controllers.MessageAPI.channel
+
+# Static
+# ~~~~
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /lib/require.js         controllers.WebJarAssets.requirejs
+### Enable www.WebJars.org based resources to be returned
+GET     /webjars/*file          controllers.WebJarAssets.at(file)
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file           controllers.Assets.at(path="/public", file)
+# Javascript routes
+GET     /routes.js              controllers.Application.jsRoutes

@@ -1,0 +1,16 @@
+define(
+    ['angular', 'jsRoutes'],
+    (angular, jsRoutes) ->
+        class MessageService
+            constructor: ($resource) ->
+                MessageResource = $resource jsRoutes.controllers.MessageAPI.create().url, {},
+                    save:
+                        method: 'POST'
+                        isArray: false
+
+                MessageService::save = (data, callback) ->
+                    MessageResource.save(data, callback)
+
+                MessageService::channel = () ->
+                    new WebSocket(jsRoutes.controllers.MessageAPI.channel().url)
+    )

@@ -1,0 +1,11 @@
+@()
+
+@main("PIMP Chat") {
+
+    <div id="chat-wrap" class="col-xs-12 col-sm-9 clearfix" data-ng-view></div>
+    <div id="chat-sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" data-ng-controller="ChatList">
+        <div class="list-group">
+            <a data-ng-href="#/{{chat.id}}" class="list-group-item" data-ng-repeat="chat in chats.items">{{ chat.name }}</a>
+        </div>
+    </div><!--/span-->
+}

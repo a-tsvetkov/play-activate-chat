@@ -1,0 +1,5 @@
+define(
+    ["angular", "angular-route", "angular-resource", "main"],
+    (angular) ->
+        angular.module "chat", ["ngRoute", "ngResource"]
+    )

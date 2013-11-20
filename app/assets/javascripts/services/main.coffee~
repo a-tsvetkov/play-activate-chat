@@ -1,0 +1,5 @@
+define(
+    ["angular", "app", "services/ChatService"]
+    (angular, app, ChatService) ->
+        angular.module("chat").service 'ChatService', ["$resource", ChatService]
+)

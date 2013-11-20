@@ -1,0 +1,42 @@
+<div id="chat-inner">
+    <div id="chat-form" class="row">
+        <div class="panel panel-default">
+            <form method="post" data-ng-submit="sendMessage()">
+                <div class="panel-body">
+                    <textarea class="form-control" data-ng-model="message.body"rows="3"></textarea>
+                </div>
+                <div class="panel-footer clearfix">
+                    <input class="btn btn-default btn-primary pull-right" type="submit" value="Отправить"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="chat-scroll" class="row">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="/assets/images/thumb_64.png" alt="userpic">
+                    </a>
+                    <div class="media-body">
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-info" data-ng-repeat="message in chat.messages|orderBy:created:reverse">
+            <div class="panel-heading">
+                <div class="media">
+                    <a class="pull-right" href="#">
+                        <img class="media-object" src="/assets/images/thumb_64.png" alt="userpic">
+                    </a>
+                    <div class="media-body">
+                        {{ message.body }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/row-->
+</div>
